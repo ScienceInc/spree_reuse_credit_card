@@ -2,10 +2,10 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_reuse_credit_card'
-  s.version     = '1.0.0'
+  s.version     = '1.0.1'
   s.summary     = 'Enables view enhancements for managing multiple previously-used credit cards for Spree'
   s.description = 'Enables view enhancements for managing multiple previously-used credit cards for Spree'
-  s.required_ruby_version = '>= 1.8.7'
+  s.required_ruby_version = '>= 1.9.2'
 
   s.author            = 'Jeff Squires'
   s.email             = 'jeff.squires@gmail.com'
@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
 
-  #s.add_dependency 'spree', '~> 1.2.0'
+  s.add_dependency 'spree', '~> 2.0.0'
 
   s.add_development_dependency 'spree_auth_devise', '~> 1.2.0'
   s.add_development_dependency 'capybara', '~> 1.1'

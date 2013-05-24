@@ -11,7 +11,7 @@ module Spree
     private
 
     def load_existing_cards
-      @cards = all_cards_for_user(@user)
+      @cards = all_cards_for_user(try_spree_current_user)
     end
   end
 end
