@@ -1,6 +1,8 @@
 //= require jquery.alerts/jquery.alerts
 //= require_self
 
+//= require credit_card_radio_buttons
+
 var creditCardDeleteCallback=$.noop();
 
 function displayCreditCardDeleteStatus(notice) {
@@ -109,3 +111,4 @@ function disableContinueButton() {
     $(".form-buttons input[type=submit]").val('Please Select a Card to Use');
   }
 }
+
