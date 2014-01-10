@@ -16,7 +16,10 @@
   #card_options label {
     float: left;
     margin-right: 10px;
+  }
 
+  .card_option {
+    display: inline-block;
   }
 
   #existing_cards h4 {
@@ -33,11 +36,14 @@
 
 <% if @cards.present? %>
   <div id="card_options">
-  <%= radio_button_tag 'use_existing_card', 'yes', true %>
-  <label>Use an existing card on file</label>
-  <br/>
-  <%= radio_button_tag 'use_existing_card', 'no' %>
-  <label>Use a new card</label>
+    <div class="card_option">
+      <%= radio_button_tag 'use_existing_card', 'yes', true %>
+      <label>Use an existing card on file</label>
+    </div>
+    <div class="card_option">
+      <%= radio_button_tag 'use_existing_card', 'no' %>
+      <label>Use a new card</label>
+    </div>
   </div>
 
 <div id="existing_cards">
