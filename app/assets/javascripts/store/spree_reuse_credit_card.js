@@ -20,6 +20,17 @@ function displayCreditCardDeleteStatus(notice) {
   creditCardDeleteCallback();
 }
 
+function useExistingCardsInit() {
+  $("#existing_cards").show();
+  $("#existing_cards h4").show();
+  $("#existing_cards table").show();
+
+  $("[data-hook=card_number]").hide();
+  $("[data-hook=card_expiration]").hide();
+  $("[data-hook=cart_code]").hide(); // unfortunately this is a typo in spree (cart v card)
+
+  disableContinueButton();
+}
 
 function paymentPageResetCreditCardOptions() {
   // if we don't do this, we'll accidentally submit our 'use existing'
@@ -90,18 +101,6 @@ $(document).on('click','input[type="radio"][name="order[payments_attributes][][p
 function restoreContinueButton() {
   $(".form-buttons input[type=submit]").attr('disabled',false);
   $(".form-buttons input[type=submit]").val(original_button_text);
-}
-
-function useExistingCardsInit() {
-  $("#existing_cards").show();
-  $("#existing_cards h4").show();
-  $("#existing_cards table").show();
-
-  $("[data-hook=card_number]").hide();
-  $("[data-hook=card_expiration]").hide();
-  $("[data-hook=cart_code]").hide(); // unfortunately this is a typo in spree (cart v card)
-
-  disableContinueButton();
 }
 
 function disableContinueButton() {
