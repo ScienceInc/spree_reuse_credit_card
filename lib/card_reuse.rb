@@ -7,12 +7,13 @@ module CardReuse
     payments.map do |payment| 
       src = payment.source
 
-      if valid_for_reuse?(src)
+      if valid_for_reuse?(src) && payment.valid?
         src
       else
         nil
       end
-    end.compact.uniq
+    end.compact!.uniq!
+    payments = payments.uniq_by {|p| p["last_digits"] && p["year"] && p["month"]}
   end
 
   def valid_for_reuse?(payment_source)
