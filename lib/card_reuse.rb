@@ -4,7 +4,7 @@ module CardReuse
 
     payments = credit_card_payments_for_user(user)
 
-    payments.map do |payment| 
+    payments = payments.map do |payment| 
       src = payment.source
 
       if valid_for_reuse?(src) && payment.valid?
@@ -13,7 +13,6 @@ module CardReuse
         nil
       end
     end.compact!.uniq!
-    payments.delete_if { |p| !p.valid? }
     payments.each do |payment|
       payments.delete_if do |p| 
         p != payment && (p["last_digits"] == payment["last_digits"] && p["year"] == payment["year"] && p["month"] == payment["month"])
