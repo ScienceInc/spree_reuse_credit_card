@@ -7,7 +7,7 @@ module CardReuse
     payments = payments.map do |payment| 
       src = payment.source
 
-      if valid_for_reuse?(src) && payment.valid?
+      if valid_for_reuse?(src) && payment.valid? && src.gateway_payment_profile_id
         src
       else
         nil
