@@ -12,7 +12,7 @@ module CardReuse
       else
         nil
       end
-    end.compact!.uniq!
+    end.compact.uniq
     payments.each do |payment|
       payments.delete_if do |p| 
         p != payment && (p["last_digits"] == payment["last_digits"] && p["year"] == payment["year"] && p["month"] == payment["month"])
