@@ -13,7 +13,13 @@ module CardReuse
         nil
       end
     end.compact!.uniq!
-    payments = payments.uniq_by {|p| p["last_digits"] && p["year"] && p["month"]}
+    payments.delete_if { |p| !p.valid? }
+    payments.each do |payment|
+      payments.delete_if do |p| 
+        p != payment && (p["last_digits"] == payment["last_digits"] && p["year"] == payment["year"] && p["month"] == payment["month"])
+      end
+    end
+    payments
   end
 
   def valid_for_reuse?(payment_source)
